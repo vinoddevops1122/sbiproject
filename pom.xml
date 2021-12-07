@@ -15,6 +15,18 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <distributionManagement>
+    <repository>
+      <id>nexusrepo</id>
+      <name>Releases</name>
+      <url>http://localhost:8081/repository/sbiproject-releases/</url>
+    </repository>
+    <snapshotRepository>
+      <id>nexusrepo</id>
+      <name>Snapshot</name>
+      <url>http://localhost:8081/repository/sbiproject-snapshots/</url>
+    </snapshotRepository>
+  </distributionManagement>
   <build>
     <finalName>sbiproject</finalName>
   </build>
