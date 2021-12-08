@@ -27,7 +27,21 @@
       <url>http://localhost:8081/repository/sbiproject-snapshots/</url>
     </snapshotRepository>
   </distributionManagement>
+  <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Optional URL to server. Default value is http://localhost:9000 -->
+                <sonar.host.url>
+                  http://myserver:9000
+                </sonar.host.url>
+            </properties>
   <build>
     <finalName>sbiproject</finalName>
   </build>
+		</profile>
+  </profiles>
 </project>
