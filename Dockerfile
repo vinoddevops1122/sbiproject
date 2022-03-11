@@ -2,13 +2,13 @@ FROM centos:latest
 RUN apk add openjdk8
 RUN apk add mvn
 RUN apk add git
-ADD 
+ADD https://github.com/vinoddevops1122/sbiproject.git
 RUN mvn clean package
-RUN mkdir /opt/tomcat
-WORKDIR /opt/tomcat
-ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz .
-RUN tar -xvzf apache-tomcat-8.5.73.tar.gz
-RUN mv apache-tomcat-8.5.73/* /opt/tomcat
+WORKDIR /opt
+ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.76/bin/apache-tomcat-8.5.76.tar.gz .
+RUN tar -xf apache-tomcat-8.5.76.tar.gz
+RUN mv apache-tomcat-8.5.76 tomcat8
+WORKDIR /opt/tomcat8/webapps
+COPY ./target/sbiproject.war .
 EXPOSE 8080
-COPY ./target/sbiproject.war /opt/tomcat/webapps
-CMD ["/opt/tomcat/bin/catalina.sh", "run"]
+CMD ["/opt/tomcat8/bin/catalina.sh", "run"]
