@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM alpine:3.15.0
 RUN apk add openjdk8
 RUN apk add mvn
 RUN apk add git
