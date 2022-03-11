@@ -1,5 +1,9 @@
 FROM centos:latest
-RUN yum install java-1.8.0-openjdk -y
+RUN apk add openjdk8
+RUN apk add mvn
+RUN apk add git
+ADD 
+RUN mvn clean package
 RUN mkdir /opt/tomcat
 WORKDIR /opt/tomcat
 ADD https://dlcdn.apache.org/tomcat/tomcat-8/v8.5.73/bin/apache-tomcat-8.5.73.tar.gz .
